@@ -1,0 +1,35 @@
+Your structure should look like:
+
+src/
+│
+├── assets/
+├── components/
+├── data/
+├── pages/
+├── App.jsx
+├── App.css
+├── main.jsx
+
+Now inside components create:
+
+Navbar.jsx
+Hero.jsx
+Footer.jsx
+TutorialCard.jsx
+ChallengeCard.jsx
+
+Inside pages create:
+
+Home.jsx
+Tutorials.jsx
+Challenges.jsx
+Dashboard.jsx
+Blog.jsx
+
+Inside data create:
+
+tutorials.js
+challenges.js
+blogs.js
+
+Say done when finished.
