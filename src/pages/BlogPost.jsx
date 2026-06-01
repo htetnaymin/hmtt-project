@@ -30,8 +30,11 @@ function BlogPost() {
   const [likes, setLikes] = useState(() => {
     const savedLikes = localStorage.getItem(`blog_likes_count_${id}`)
     if (savedLikes) return parseInt(savedLikes)
-    // Starting baseline value to look active
-    return (parseInt(id) || 1) * 8 + 5
+    
+    const numericId = parseInt(id) || 1
+    // If the ID is a timestamp (e.g. newly created blogs), use a mod limit to keep it realistic
+    const baseline = numericId > 10000 ? (numericId % 43) + 8 : numericId * 8 + 5
+    return baseline
   })
   const [hasLiked, setHasLiked] = useState(() => {
     return localStorage.getItem(`blog_has_liked_${id}`) === 'true'
