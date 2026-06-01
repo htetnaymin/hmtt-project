@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import tutorials from '../data/tutorials'
 import { Link } from 'react-router-dom'
+import { getTutorials } from '../data/dynamicData'
 
 function Tutorials() {
+  const tutorials = getTutorials()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedLevel, setSelectedLevel] = useState('All')
 

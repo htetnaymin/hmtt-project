@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import blogPosts from '../data/blogs'
+import { getBlogs } from '../data/dynamicData'
 import ReactMarkdown from 'react-markdown'
 import { UserContext } from '../context/UserContext'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -12,6 +12,7 @@ function BlogPost() {
   const { id } = useParams()
   const { progress, markComplete } = useContext(UserContext)
 
+  const blogPosts = getBlogs()
   const post = blogPosts.find((p) => p.id === parseInt(id))
   const isRead = progress.blogs.includes(post?.id)
 

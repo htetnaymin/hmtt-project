@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import challenges from '../data/challenges'
+import { getChallenges } from '../data/dynamicData'
 import { UserContext } from '../context/UserContext'
 
 // Monospace deep equality helper for testing arrays/objects
@@ -26,7 +26,8 @@ function Challenge() {
   const { id } = useParams();
   const { progress, markComplete } = useContext(UserContext);
 
-  const challenge = challenges.find(c => c.id === parseInt(id));
+  const challengesList = getChallenges();
+  const challenge = challengesList.find(c => c.id === parseInt(id));
   const isSolved = progress.challenges.includes(challenge?.id);
 
   // States for Playground

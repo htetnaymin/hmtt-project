@@ -2,9 +2,10 @@ import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
-import blogPosts from '../data/blogs'
+import { getBlogs } from '../data/dynamicData'
 
 function Blog() {
+  const blogPosts = getBlogs();
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState('All')
 

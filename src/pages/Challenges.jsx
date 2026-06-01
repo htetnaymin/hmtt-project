@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import challenges from '../data/challenges'
 import { Link } from 'react-router-dom'
+import { getChallenges } from '../data/dynamicData'
 
 function Challenges() {
+  const challenges = getChallenges()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedDifficulty, setSelectedDifficulty] = useState('All')
 
