@@ -38,7 +38,7 @@ function Challenge() {
           
           <button 
             className="primary-button" 
-            onClick={() => markComplete('challenges', challenge.id)}
+            onClick={() => markComplete('challenges', challenge.id, challenge.title)}
             disabled={isSolved}
             style={{ marginTop: '2rem', opacity: isSolved ? 0.6 : 1, cursor: isSolved ? 'default' : 'pointer' }}
           >

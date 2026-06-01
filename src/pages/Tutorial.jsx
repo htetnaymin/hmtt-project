@@ -39,7 +39,7 @@ function Tutorial() {
           <div className="blog-post-content" style={{ marginTop: '2rem' }}>
             <ReactMarkdown
               components={{
-                code({node, inline, className, children, ...props}) {
+                code({inline, className, children, ...props}) {
                   const match = /language-(\w+)/.exec(className || '')
                   return !inline && match ? (
                     <SyntaxHighlighter
@@ -63,7 +63,7 @@ function Tutorial() {
           
           <button 
             className="primary-button" 
-            onClick={() => markComplete('tutorials', tutorial.id)}
+            onClick={() => markComplete('tutorials', tutorial.id, tutorial.title)}
             disabled={isCompleted}
             style={{ marginTop: '2rem', opacity: isCompleted ? 0.6 : 1, cursor: isCompleted ? 'default' : 'pointer' }}
           >

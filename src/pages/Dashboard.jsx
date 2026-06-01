@@ -3,12 +3,6 @@ import { UserContext } from '../context/UserContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-const recentActivities = [
-  { title: 'Completed React Component Basics', time: '2 hours ago' },
-  { title: 'Solved Array Loop Challenge', time: 'Yesterday' },
-  { title: 'Read blog post about CSS layout', time: '2 days ago' }
-]
-
 function Dashboard() {
   const { progress } = useContext(UserContext);
 
@@ -18,6 +12,8 @@ function Dashboard() {
     { label: 'Articles read', value: progress.blogs.length.toString() },
     { label: 'Learning streak', value: `${progress.streak} days` }
   ];
+
+  const recentActivities = progress.activities || [];
 
   return (
     <div className="dashboard-container">
@@ -59,14 +55,20 @@ function Dashboard() {
           </div>
 
           <div className="activity-list">
-            {recentActivities.map((activity) => (
-              <div key={activity.title} className="activity-item">
-                <div>
-                  <h3>{activity.title}</h3>
-                  <p>{activity.time}</p>
+            {recentActivities.length > 0 ? (
+              recentActivities.map((activity) => (
+                <div key={activity.id} className="activity-item">
+                  <div>
+                    <h3>{activity.action}: {activity.title}</h3>
+                    <p style={{ marginTop: '5px', fontSize: '13px', color: '#8892b0' }}>{activity.time}</p>
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div className="activity-item" style={{ textAlign: 'center', padding: '30px' }}>
+                <p>No activity yet. Start exploring tutorials and challenges!</p>
               </div>
-            ))}
+            )}
           </div>
         </section>
       </main>

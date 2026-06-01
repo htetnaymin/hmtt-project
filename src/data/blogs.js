@@ -17,6 +17,14 @@ function Welcome(props) {
 \`\`\`
 `,
     date: 'May 15, 2026',
+    tags: ['React', 'JavaScript', 'Frontend'],
+    readTime: '3 min read',
+    author: {
+      name: 'Alex Johnson',
+      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'
+    },
+    coverImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60',
+    featured: true
   },
   {
     id: 2,
@@ -46,6 +54,14 @@ function Example() {
 \`\`\`
 `,
     date: 'May 18, 2026',
+    tags: ['React', 'Hooks', 'Intermediate'],
+    readTime: '5 min read',
+    author: {
+      name: 'Sarah Chen',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80'
+    },
+    coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
+    featured: false
   },
   {
     id: 3,
@@ -63,6 +79,14 @@ Context provides a way to pass data through the component tree without having to
 * Great for themes, user auth, etc.
 `,
     date: 'May 22, 2026',
+    tags: ['State Management', 'Redux', 'Context API'],
+    readTime: '6 min read',
+    author: {
+      name: 'Marcus Brody',
+      avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80'
+    },
+    coverImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=60',
+    featured: false
   }
 ];
 
