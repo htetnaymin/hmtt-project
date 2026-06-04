@@ -349,6 +349,10 @@ body{
   max-width:620px;
 }
 
+.eyebrow{
+  color: white;
+}
+
 .dashboard-card,
 .dashboard-hero-card{
   background: linear-gradient(145deg, #FB923C, #F97316);
@@ -357,11 +361,6 @@ body{
   border-radius:24px;
   border:1px solid rgba(251,146,60,0.25);
   transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dashboard-card:hover,
-.dashboard-hero-card:hover{
-  transform:translateY(-3px);
 }
 
 .dashboard-hero-card{
@@ -966,6 +965,7 @@ body{
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  color: hsl(0, 0%, 100%);
 }
 
 .search-bar {
@@ -974,14 +974,19 @@ body{
   border-radius: 999px;
   border: 1px solid #1e293b;
   background: #0f172a;
-  color: #f8fafc;
+  color: hsl(0, 0%, 100%);
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s;
 }
 
 .search-bar:focus {
-  border-color: #38bdf8;
+  border-color:#38bdf8;
+}
+
+.search-bar:hover{
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
 
 .filter-group {
@@ -1003,7 +1008,10 @@ body{
 }
 
 .filter-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.273);
+  transform: translateY(-2px);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .filter-btn.active {
@@ -1019,4 +1027,37 @@ body{
   padding: 40px;
   color: #94a3b8;
   font-size: 1.1rem;
+}
+
+.Subscribe_Button:hover{
+  box-shadow: 0 8px 32px rgb(255, 255, 255);
+  transform: translateY(-2px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-link:hover{
+  transform: translateY(-2px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar_words:hover{
+  transform: translateY(-2px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Social_Icons:hover{
+  transform: translateY(-2px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.challenge-buttons:hover{
+  background: linear-gradient(145deg, #6366F1, #4F46E5);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.45);
+  transform: translateY(-2px);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
