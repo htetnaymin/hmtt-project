@@ -8,6 +8,7 @@ import Blog from './pages/Blog.jsx'
 import BlogPost from './pages/BlogPost.jsx'
 import Challenge from './pages/Challenge.jsx'
 import Tutorial from './pages/Tutorial.jsx'
+import Admin from './pages/Admin.jsx'
 import { UserProvider } from './context/UserContext.jsx'
 
 function App() {
@@ -51,6 +52,11 @@ function App() {
         <Route
           path="/tutorials/:id"
           element={<Tutorial />}
+        />
+
+        <Route
+          path="/admin"
+          element={<Admin />}
         />
 
       </Routes>

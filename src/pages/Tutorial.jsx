@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import tutorials from '../data/tutorials'
+import { getTutorials } from '../data/dynamicData'
 import ReactMarkdown from 'react-markdown'
 import { UserContext } from '../context/UserContext'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -12,6 +12,7 @@ function Tutorial() {
   const { id } = useParams();
   const { progress, markComplete } = useContext(UserContext);
 
+  const tutorials = getTutorials();
   const tutorial = tutorials?.find(t => t.id === parseInt(id));
   const isCompleted = progress.tutorials.includes(tutorial?.id);
 
@@ -39,7 +40,7 @@ function Tutorial() {
           <div className="blog-post-content" style={{ marginTop: '2rem' }}>
             <ReactMarkdown
               components={{
-                code({node, inline, className, children, ...props}) {
+                code({inline, className, children, ...props}) {
                   const match = /language-(\w+)/.exec(className || '')
                   return !inline && match ? (
                     <SyntaxHighlighter
@@ -63,7 +64,7 @@ function Tutorial() {
           
           <button 
             className="primary-button" 
-            onClick={() => markComplete('tutorials', tutorial.id)}
+            onClick={() => markComplete('tutorials', tutorial.id, tutorial.title)}
             disabled={isCompleted}
             style={{ marginTop: '2rem', opacity: isCompleted ? 0.6 : 1, cursor: isCompleted ? 'default' : 'pointer' }}
           >

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function ChallengeCard({ challengeName }) {
   return (
     <div className="card challenge-card">

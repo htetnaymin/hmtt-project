@@ -31,6 +31,10 @@ function Navbar() {
           <Link to="/blog">Blog</Link>
         </li>
 
+        <li>
+          <Link to="/admin">Admin</Link>
+        </li>
+
       </ul>
 
     </nav>

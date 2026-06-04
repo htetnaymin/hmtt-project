@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function TutorialCard({ title }) {
   return (
     <div className="tutorial-card">
