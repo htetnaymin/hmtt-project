@@ -1,26 +1,51 @@
-import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { useAuth } from "../context/AuthContext";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Dashboard() {
   const { progress } = useContext(UserContext);
+  const { user } = useAuth();
 
   const stats = [
-    { label: 'Tutorials completed', value: progress.tutorials.length.toString() },
-    { label: 'Challenges solved', value: progress.challenges.length.toString() },
-    { label: 'Articles read', value: progress.blogs.length.toString() },
-    { label: 'Learning streak', value: `${progress.streak} days` }
+    {
+      label: "Tutorials completed",
+      value: progress.tutorials.length.toString(),
+    },
+    {
+      label: "Challenges solved",
+      value: progress.challenges.length.toString(),
+    },
+    { label: "Articles read", value: progress.blogs.length.toString() },
+    { label: "Learning streak", value: `${progress.streak} days` },
   ];
 
   const recentActivities = progress.activities || [];
 
   return (
     <div className="dashboard-container">
-
       <Navbar />
 
       <main className="dashboard-main">
+        {/* Account card — only shown when logged in */}
+        {user && (
+          <section className="dashboard-account-card">
+            <div className="dashboard-account-avatar">
+              {user.username.charAt(0).toUpperCase()}
+            </div>
+            <div className="dashboard-account-info">
+              <p className="eyebrow">Logged in as</p>
+              <h2 className="dashboard-account-name">{user.username}</h2>
+              <span
+                className={`dashboard-account-role ${user.role === "admin" ? "role-admin" : "role-user"}`}
+              >
+                {user.role === "admin" ? "⚙ Admin" : "🎓 Member"}
+              </span>
+            </div>
+          </section>
+        )}
+
         <section className="dashboard-hero">
           <div className="dashboard-card">
             <p className="eyebrow">Your learning space</p>
@@ -33,7 +58,10 @@ function Dashboard() {
 
           <div className="dashboard-hero-card">
             <h2>Keep going!</h2>
-            <p>You are on a {progress.streak}-day streak. Keep learning at your own pace.</p>
+            <p>
+              You are on a {progress.streak}-day streak. Keep learning at your
+              own pace.
+            </p>
           </div>
         </section>
 
@@ -59,14 +87,29 @@ function Dashboard() {
               recentActivities.map((activity) => (
                 <div key={activity.id} className="activity-item">
                   <div>
-                    <h3>{activity.action}: {activity.title}</h3>
-                    <p style={{ marginTop: '5px', fontSize: '13px', color: '#8892b0' }}>{activity.time}</p>
+                    <h3>
+                      {activity.action}: {activity.title}
+                    </h3>
+                    <p
+                      style={{
+                        marginTop: "5px",
+                        fontSize: "13px",
+                        color: "#8892b0",
+                      }}
+                    >
+                      {activity.time}
+                    </p>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="activity-item" style={{ textAlign: 'center', padding: '30px' }}>
-                <p>No activity yet. Start exploring tutorials and challenges!</p>
+              <div
+                className="activity-item"
+                style={{ textAlign: "center", padding: "30px" }}
+              >
+                <p>
+                  No activity yet. Start exploring tutorials and challenges!
+                </p>
               </div>
             )}
           </div>
@@ -75,7 +118,7 @@ function Dashboard() {
 
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;
