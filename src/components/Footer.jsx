@@ -5,21 +5,21 @@ export default function Footer() {
       <div className="footer-top">
  
         <div className="footer-brand">
-          <div className="logo">{"</HMTT LEARN>"}</div>
+          <div className="logo">{"HMTT LEARN"}</div>
           <p className="footer-tagline">
             Empowering the next generation of developers — one tutorial at a time.
           </p>
           <div className="footer-socials">
-            <a href="#" aria-label="GitHub">
+            <a href="#" aria-label="GitHub" className="Social_Icons">
               <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
             </a>
-            <a href="#" aria-label="Twitter">
+            <a href="#" aria-label="Twitter" className="Social_Icons">
               <img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="Twitter" />
             </a>
-            <a href="#" aria-label="YouTube">
+            <a href="#" aria-label="YouTube" className="Social_Icons">
               <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
             </a>
-            <a href="#" aria-label="Discord">
+            <a href="#" aria-label="Discord" className="Social_Icons">
               <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" />
             </a>
           </div>
@@ -63,7 +63,7 @@ export default function Footer() {
           <p>Get new tutorials and coding tips in your inbox.</p>
           <div className="newsletter-form">
             <input type="email" placeholder="your@email.com" />
-            <button>Subscribe</button>
+            <button className="Subscribe_Button">Subscribe</button>
           </div>
         </div>
  

@@ -4,7 +4,8 @@ const tutorials = [
     title: 'JavaScript Fundamentals',
     description: 'Learn the basic concepts of JavaScript, including variables, loops, and functions.',
     level: "Basic",
-    content: `## Introduction
+    class: "tutorials_Basic_Icon",
+    content: `## Introduction,
 
 JavaScript is the programming language of the Web. In this tutorial, you will learn the basics.
 
@@ -105,7 +106,7 @@ The Fetch API provides a JavaScript interface for accessing and manipulating par
 Using \`async / await\` makes working with promises much cleaner.
 
 \`\`\`javascript
-async function getUser() {
+  async function getUser() {
   try {
     const response = await fetch('https://api.example.com/user');
     const data = await response.json();
